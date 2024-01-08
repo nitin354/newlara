@@ -34,25 +34,27 @@ Route::get('/about', function () {
     return view('about');
 });
 
-Route::middleware('auth')->group(function () {
-    // Your authenticated routes go here
-});
+
 Route::get('/admin/login', function () {
-    //dd("here");
     return view('admin.adminlogin');
-});
+})->name('login');
 
 Route::get('/admin/forgetpassword', function () {
-    //dd("here");
     return view('admin.forgot-password');
 });
+Route::middleware(['auth:admin'])->group(function () {
 
 Route::get('/admin/dashboard', function () {
-    //dd("here");
     return view('admin.dashboard');
 });
 
+Route::get('/admin/bloglist', function () {
+    return view('admin.bloglist');
+});
+
+});
+
 Route::get('/admin/register', function () {
-    //dd("here");
     return view('admin.register');
 });
+
