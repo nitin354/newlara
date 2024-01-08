@@ -1,4 +1,4 @@
-<!-- ***** Footer Start ***** -->
+</div><!-- ***** Footer Start ***** -->
 <footer>
     <div class="container">
         <div class="row">
@@ -27,7 +27,31 @@
 
     <!-- Global Init -->
     <script src="{{ asset('assets/js/custom.js')}}"></script>
+    <script>
+        $(document).ready(function () {
+            // Use a class or ID to select the links you want to handle
+            $('.no-reload-link').on('click', function (event) {
+                // Prevent the default link behavior (page reload)
+                event.preventDefault();
 
+                // Get the href attribute of the clicked link
+                var href = $(this).attr('href');
+
+                // Use AJAX to load the content without page reload
+                $.ajax({
+                    url: href,
+                    type: 'GET',
+                    success: function (data) {
+                        // Replace the content of a specific container with the loaded data
+                        $('#content-container').html(data);
+                    },
+                    error: function () {
+                        console.error('Failed to load content.');
+                    }
+                });
+            });
+        });
+    </script>
     </body>
 
     </html>

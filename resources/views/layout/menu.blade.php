@@ -9,10 +9,12 @@
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                        <li><a href="{{ url('/') }}" class="{{ request()->segment(1) == '' ? 'active' : '' }}">Home</a>
+                        <li><a href="{{ url('/') }}"
+                                class="{{ request()->segment(1) == '' ? 'active' : '' }} no-reload-link">Home</a>
                         </li>
                         <li><a href="{{ url('/blog') }}"
-                                class="{{ request()->segment(1) == 'blog' ? 'active' : '' }}">Blog</a></li>
+                                class="{{ request()->segment(1) == 'blog' ? 'active' : '' }} no-reload-link">Blog</a>
+                        </li>
                         <li><a href="{{ url('/about') }}"
                                 class="{{ request()->segment(1) == 'about' ? 'active' : '' }}">About us</a></li>
                         <li><a href="{{ url('/team') }}"

@@ -21,10 +21,6 @@ Route::get('/blog', function () {
     return view('blog');
 });
 
-Route::get('/login', function () {
-    return view('login');
-});
-
 
 Route::get('/team', function () {
     return view('team');
@@ -36,4 +32,27 @@ Route::get('/contact', function () {
 
 Route::get('/about', function () {
     return view('about');
+});
+
+Route::middleware('auth')->group(function () {
+    // Your authenticated routes go here
+});
+Route::get('/admin/login', function () {
+    //dd("here");
+    return view('admin.adminlogin');
+});
+
+Route::get('/admin/forgetpassword', function () {
+    //dd("here");
+    return view('admin.forgot-password');
+});
+
+Route::get('/admin/dashboard', function () {
+    //dd("here");
+    return view('admin.dashboard');
+});
+
+Route::get('/admin/register', function () {
+    //dd("here");
+    return view('admin.register');
 });
